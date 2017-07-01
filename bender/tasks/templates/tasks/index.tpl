@@ -1,6 +1,8 @@
 {% extends 'core/base.tpl' %}
 {% import 'tasks/macros.tpl' as macros %}
 
+{% block title %}Задачи{% endblock %}
+
 {% block content %}
 <div class="container-fluid">
     <div class="row">
@@ -26,7 +28,8 @@
                     {% for task in tasks %}
                     <tr>
                         <td><strong>{{ task.pk }}</strong></td>
-                        <td>{{ task.title }}</td>
+                        <td>
+                            <a href="{{ url('tasks:task', task.pk)}}">{{ task.title }}</a></td>
                         <td>-</td>
                         <td>-</td>
                     </tr>
