@@ -55,7 +55,7 @@
 
   <body>
     <div class="container">
-      <form class="form-signin">
+      <form class="form-signin" method="POST" action="{{ url('login') }}">
         <h2 class="form-signin-heading">Вход</h2>
         <label for="{{ form.username.id_for_label }}" class="sr-only">Имя пользователя</label>
         <input type="text" id="{{ form.username.id_for_label }}" name={{ form.username.name }} class="form-control" placeholder="username" required autofocus>
