@@ -32,6 +32,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'material',
+    'material.admin',
+
     # build-in packages
     'django.contrib.admin',
     'django.contrib.auth',
@@ -68,6 +71,7 @@ TEMPLATES = [
             "match_extension": ".tpl",
             "context_processors": [
                 "django.contrib.auth.context_processors.auth",
+                'django.template.context_processors.request',
                 "django.template.context_processors.debug",
                 "django.template.context_processors.i18n",
                 "django.template.context_processors.media",
@@ -164,7 +168,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(PROJECT_DIR, '..', 'static')
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
 try:
     from .settings_local import *
