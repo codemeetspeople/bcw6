@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=100, verbose_name='\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435')),
                 ('description', models.CharField(max_length=255, verbose_name='\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435')),
-                ('input_example', models.CharField(max_length=100, verbose_name='\u041f\u0440\u0438\u043c\u0435\u0440 \u0432\u0432\u043e\u0434\u0430')),
+                ('input_example', models.CharField(max_length=100, verbose_name='\u041f\u0440\u0438\u043c\u0435\u0440 \u0432\u0432\u043e\u0434\u0430', blank=True, null=True)),
                 ('output_example', models.CharField(max_length=100, verbose_name='\u041f\u0440\u0438\u043c\u0435\u0440 \u0432\u044b\u0432\u043e\u0434\u0430')),
             ],
             options={
@@ -49,7 +49,7 @@ class Migration(migrations.Migration):
             name='TestCase',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('given_input', models.CharField(max_length=100, verbose_name='\u0412\u0445\u043e\u0434\u044f\u0449\u0438\u0435 \u0434\u0430\u043d\u043d\u044b\u0435')),
+                ('given_input', models.CharField(max_length=100, verbose_name='\u0412\u0445\u043e\u0434\u044f\u0449\u0438\u0435 \u0434\u0430\u043d\u043d\u044b\u0435', null=True, blank=True)),
                 ('expected_output', models.CharField(max_length=100, verbose_name='\u041e\u0436\u0438\u0434\u0430\u0435\u043c\u044b\u0439 \u0432\u044b\u0432\u043e\u0434')),
                 ('task', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='tests', to='tasks.Task', verbose_name='\u0417\u0430\u0434\u0430\u0447\u0430')),
             ],

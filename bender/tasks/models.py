@@ -22,8 +22,8 @@ class Task(models.Model):
     )
     input_example = models.CharField(
         max_length=100,
-        null=False,
-        blank=False,
+        null=True,
+        blank=True,
         verbose_name=_(u'Пример ввода')
     )
     output_example = models.CharField(
@@ -92,8 +92,8 @@ class TestCase(models.Model):
     )
     given_input = models.CharField(
         max_length=100,
-        null=False,
-        blank=False,
+        null=True,
+        blank=True,
         verbose_name=_(u'Входящие данные')
     )
     expected_output = models.CharField(
