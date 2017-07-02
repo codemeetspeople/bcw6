@@ -1,5 +1,11 @@
+class STATUS:
+    code_works = 'code works'
+    code_compiles = 'code compiles'
+    code_fail = 'code fail'
+
+
 STATUSES = (
-    ('code works', 'code works'),
-    ('code compiles', 'code compiles'),
-    ('code fail', 'code fail')
+    (STATUS.code_works, STATUS.code_works),
+    (STATUS.code_compiles, STATUS.code_compiles),
+    (STATUS.code_fail, STATUS.code_fail)
 )

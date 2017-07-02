@@ -68,6 +68,11 @@ class Solution(models.Model):
         blank=False,
         verbose_name=_(u'Код решения')
     )
+    message = models.TextField(
+        null=True,
+        blank=True,
+        verbose_name=_(u'Сообщение об ошибке')
+    )
     created_at = models.DateTimeField(
         auto_now_add=True,
         verbose_name=_(u'Опубликовано')

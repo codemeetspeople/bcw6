@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
+import ujson
 from django.shortcuts import get_object_or_404
+from django.http import HttpResponse
 
 from core import views
 from tasks import models
@@ -34,3 +36,20 @@ class TaskView(views.BaseTemplatedView):
         })
 
         return context
+
+    def post(self, request, *args, **kwargs):
+        data = request.body
+        username = request.user.username
+        task_id = kwargs.get('task_id')
+
+        return HttpResponse(
+            ujson.dumps(
+                {
+                    'data': data,
+                    'user': username,
+                    'kwargs': kwargs
+                }  
+            ),
+            status=200,
+            content_type="application/json"
+        )
