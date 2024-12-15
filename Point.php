@@ -1,7 +1,7 @@
 <?php
     class Point {
-        private int $x;
-        private int $y;
+        protected int $x;
+        protected int $y;
 
         public function __construct(int $x = 0, int $y = 0) {
             $this->x = $x;
@@ -35,6 +35,10 @@
             $this->y = $value;
         }
 
+        public function distance(Point $other): float {
+            return hypot($this->x - $other->x, $this->y - $other->y);
+        }
+
         public function isEqualTo(Point $other): bool {
             return $this->y == $other->y;
         }
@@ -49,26 +53,4 @@
         }
         
     }
-
-    $a = new Point(2, 3);
-    $b = new Point(1, 3);
-    $c = clone $b;
-
-    if ( $a->isEqualTo($b) ) {
-        echo "$a is equal to $b by custom conditions..." . PHP_EOL;
-    }
-
-
-    if ( $a == $b ) {
-        echo "$a is equal to $b" . PHP_EOL;
-    } else {
-        echo "$a is not equal to $b" . PHP_EOL;
-    }
-
-    if ( $b === $c ) {
-        echo "$b and $c are the same object" . PHP_EOL;
-    } else {
-        echo "$b and $c are different objects" . PHP_EOL;
-    }
-
 ?>
